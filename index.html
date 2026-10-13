@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-commerce Website | Shop Smart</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container nav">
+
+            <!-- Website name -->
+            <a class="brand" href="#home">
+                E-COMMERCE WEBSITE<span>.</span>
+            </a>
+
+            <!-- Mobile menu button -->
+            <button class="menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
+
+            <!-- Navigation links -->
+            <nav id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#categories">Categories</a>
+                <a href="#orders">Orders</a>
+            </nav>
+
+            <!-- Header action buttons -->
+            <div class="nav-actions">
+
+                <button onclick="openSearch()" title="Search">
+                    ⌕
+                </button>
+
+                <button onclick="showWishlist()" title="Wishlist">
+                    ♡
+                </button>
+
+                <button onclick="showCart()" title="Cart">
+                    🛒 <b id="cartCount">0</b>
+                </button>
+
+                <button id="authBtn" onclick="openAuth()">
+                    Login
+                </button>
+
+                <button
+                    id="adminBtn"
+                    class="hidden"
+                    onclick="showAdmin()">
+                    Admin
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+
+        <!-- ==================== HOME SECTION ==================== -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+
+                <!-- Welcome text and buttons -->
+                <div>
+                    <p class="eyebrow">
+                        WELCOME TO OUR E-COMMERCE WEBSITE
+                    </p>
+
+                    <h1>
+                        Everything you need.<br>
+                        <span>One simple store.</span>
+                    </h1>
+
+                    <p class="hero-text">
+                        Discover everyday essentials, fashion, electronics
+                        and lifestyle products at prices made for you.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn primary" href="#shop">
+                            Shop Now →
+                        </a>
+
+                        <button
+                            class="btn ghost"
+                            onclick="showFeatured()">
+                            Explore Deals
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero image card -->
+                <div class="hero-card">
+
+                    <div class="hero-badge">
+                        TRENDING
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200"
+                        alt="E-commerce store">
+
+                    <div class="hero-card-caption">
+                        <strong>New season essentials</strong>
+                        <span>Curated for everyday life.</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CATEGORIES SECTION ==================== -->
+        <section id="categories" class="section">
+            <div class="container">
+
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">BROWSE</p>
+                        <h2>Shop by category</h2>
+                    </div>
+                </div>
+
+                <!-- Categories are loaded through JavaScript -->
+                <div
+                    id="categoryGrid"
+                    class="category-grid">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== PRODUCTS SECTION ==================== -->
+        <section id="shop" class="section shop-section">
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div>
+                        <p class="eyebrow">OUR COLLECTION</p>
+                        <h2>All products</h2>
+                    </div>
+
+                    <!-- Product search, category filter and sorting -->
+                    <div class="filters">
+
+                        <input
+                            id="searchInput"
+                            type="text"
+                            placeholder="Search products..."
+                            oninput="loadProducts()">
+
+                        <select
+                            id="categorySelect"
+                            onchange="loadProducts()">
+
+                            <option value="">
+                                All categories
+                            </option>
+
+                        </select>
+
+                        <select
+                            id="sortSelect"
+                            onchange="loadProducts()">
+
+                            <option value="">Latest</option>
+
+                            <option value="price_asc">
+                                Price: Low to High
+                            </option>
+
+                            <option value="price_desc">
+                                Price: High to Low
+                            </option>
+
+                            <option value="rating">
+                                Top Rated
+                            </option>
+
+                        </select>
+
+                    </div>
+                </div>
+
+                <!-- Products are loaded through JavaScript -->
+                <div
+                    id="products"
+                    class="product-grid">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== STORE PROMISE SECTION ==================== -->
+        <section class="promo">
+            <div class="container promo-inner">
+
+                <div>
+                    <p class="eyebrow">OUR PROMISE</p>
+                    <h2>Simple shopping. Better choices.</h2>
+                </div>
+
+                <!-- Store benefits -->
+                <div class="promise-grid">
+
+                    <div>
+                        <b>🚚</b>
+                        <strong>Fast delivery</strong>
+                        <span>Reliable order handling</span>
+                    </div>
+
+                    <div>
+                        <b>🔒</b>
+                        <strong>Secure account</strong>
+                        <span>Protected authentication</span>
+                    </div>
+
+                    <div>
+                        <b>↩</b>
+                        <strong>Easy support</strong>
+                        <span>Order assistance</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container footer-grid">
+
+            <!-- Website information -->
+            <div>
+                <div class="brand">
+                    E-COMMERCE WEBSITE<span>.</span>
+                </div>
+
+                <p>Shop smart. Live better.</p>
+            </div>
+
+            <!-- Quick navigation -->
+            <div>
+                <b>Quick links</b>
+                <a href="#shop">Shop</a>
+                <a href="#categories">Categories</a>
+            </div>
+
+            <!-- Account links -->
+            <div>
+                <b>Account</b>
+                <a href="#orders">Orders</a>
+
+                <button onclick="openAuth()">
+                    Login / Register
+                </button>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 E-commerce Website. Built as an e-commerce project.
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL ==================== -->
+    <div
+        id="modal"
+        class="modal hidden"
+        onclick="closeOnBackdrop(event)">
+
+        <div
+            class="modal-box"
+            id="modalContent">
+        </div>
+
+    </div>
+
+    <!-- Toast notification messages -->
+    <div id="toast"></div>
+
+    <!-- Main JavaScript file -->
+    <script src="/app.js"></script>
+
+</body>
+</html>
